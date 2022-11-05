@@ -6,11 +6,15 @@ api = Api(app)
 
 
 class HelloWord(Resource):
-    def get(self):
-        return {"data": "Hello World"}
+    def get(self, name):
+        return {
+            "data": {
+                "name": name
+            }
+        }
 
 
-api.add_resource(HelloWord, "/helloworld")
+api.add_resource(HelloWord, "/helloworld/<string:name>")
 
 
 if __name__ == "__main__":
